@@ -3,7 +3,7 @@
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 30vmin;
   pointer-events: none;
 }
 
@@ -14,18 +14,40 @@
 }
 
 .App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  /* background-image: url('./img/paint-in-water.jpeg'); */
+  background-size: cover;
+  background-position: center;
+  background-color: rgba(0, 0, 0, 0); /* Valor de transparencia: 0.5 */
 }
 
-.App-link {
-  color: #61dafb;
+
+
+/* modo dark */
+.switch-container {
+  position: fixed;
+  top: 0px;
+  right: 20px;
+}
+#Dark {
+  background-color: #282c34;
+  color: white;
+}
+#Dark a{
+  color: white;
+}
+#Light{
+  background-color: #f2f4f6;
+}
+.list li {
+  display: inline-block;
+  padding-left: 3px;
+  padding-right: 3px;
 }
 
 @keyframes App-logo-spin {
