@@ -10,11 +10,19 @@ import Home from "../pages/Home";
 import About from "../pages/About";
 import Contact from "../pages/Contact";
 
-
-import { AppUI } from "./AppUI";
 import React from "react";
-import { TodoProvider } from "../context/TodoContext";
-
+import { useTodos } from "./useTodos";
+import { TodoHeader } from "../TodoHeader";
+import { TodoCounter } from "../TodoCounter";
+import { TodoSearch } from "../TodoSearch";
+import { TodoList } from "../TodoList";
+import { TodoItem } from "../TodoItem";
+import { TodosLoading } from "../TodosLoading";
+import { TodosError } from "../TodosError";
+import { EmptyTodos } from "../EmpyTodos";
+import { TodoForm } from "../TodoForm";
+import { CreateTodoButton } from "../CreateTodoButton";
+import { Modal } from "../Modal";
 
 function App() {
   // modo dark
@@ -28,12 +36,23 @@ function App() {
     return checked ? <FiMoon size={27} /> : <FiSun size={27} />;
   };
 
-
   // todos
-
+  const {
+    error,
+    loading,
+    searchedTodos,
+    completeTodo,
+    deleteTodo,
+    openModal,
+    setOpenModal,
+    totalTodos,
+    completedTodos,
+    searchValue,
+    setSearchValue,
+    addTodo,
+  } = useTodos();
 
   return (
-
     <div className="App">
       <header className="App-header" id={contextTheme}>
         {/* modo dark */}
@@ -57,29 +76,63 @@ function App() {
           />
         </div>
         <img src={logo} className="App-logo" alt="logo" />
-        
-      {/* todoooos */}
-      <TodoProvider>
-         <AppUI />
-      </TodoProvider>
-        
-        
+
+        {/* todoooos */}
+
+        <div>
+          <React.Fragment>
+            <TodoHeader>
+              <TodoCounter
+                totalTodos={totalTodos}
+                completedTodos={completedTodos}
+              />
+              <TodoSearch
+                searchValue={searchValue}
+                setSearchValue={setSearchValue}
+              />
+            </TodoHeader>
+
+            <TodoList
+              error={error}
+              loading={loading}
+              searchedTodos={searchedTodos}
+              onError={() => <TodosError />}
+              onLoading={() => <TodosLoading />}
+              onEmptyTodos={() => <EmptyTodos />}
+              render={(todo) => (
+                <TodoItem
+                  key={todo.text}
+                  text={todo.text}
+                  completed={todo.completed}
+                  onComplete={() => completeTodo(todo.text)}
+                  onDelete={() => deleteTodo(todo.text)}
+                />
+              )}
+            />
+
+            {!!openModal && (
+              <Modal>
+                <TodoForm addTodo={addTodo} setOpenModal={setOpenModal} />
+              </Modal>
+            )}
+
+            <CreateTodoButton setOpenModal={setOpenModal} />
+          </React.Fragment>
+        </div>
 
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />    
+            <Route index element={<Home />} />
             <Route path="about" element={<About />} />
             <Route path="contact" element={<Contact />} />
           </Route>
         </Routes>
       </header>
+      
     </div>
   );
 }
 
 export default App;
-
-
-
 
 // video 5 compartir proyecto~
