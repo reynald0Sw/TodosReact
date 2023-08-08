@@ -31,39 +31,39 @@ function TodoForm({ addTodo, setOpenModal }) {
           className="cancelTodoForm-Button-"
           onClick={onCancel}
         >
-          <span class="spark"></span>
-          <span class="backdrop"></span>
-          <span class="galaxy__container">
-            <span class="star star--static"></span>
-            <span class="star star--static"></span>
-            <span class="star star--static"></span>
-            <span class="star star--static"></span>
+          <span className="spark"></span>
+          <span className="backdrop"></span>
+          <span className="galaxy__container">
+            <span className="star star--static"></span>
+            <span className="star star--static"></span>
+            <span className="star star--static"></span>
+            <span className="star star--static"></span>
           </span>
-          <span class="galaxy">
-            <span class="galaxy__ring">
-              <span class="star"></span>
-              <span class="star"></span>
-              <span class="star"></span>
-              <span class="star"></span>
-              <span class="star"></span>
-              <span class="star"></span>
-              <span class="star"></span>
-              <span class="star"></span>
-              <span class="star"></span>
-              <span class="star"></span>
-              <span class="star"></span>
-              <span class="star"></span>
-              <span class="star"></span>
-              <span class="star"></span>
-              <span class="star"></span>
-              <span class="star"></span>
-              <span class="star"></span>
-              <span class="star"></span>
-              <span class="star"></span>
-              <span class="star"></span>
+          <span className="galaxy">
+            <span className="galaxy__ring">
+              <span className="star"></span>
+              <span className="star"></span>
+              <span className="star"></span>
+              <span className="star"></span>
+              <span className="star"></span>
+              <span className="star"></span>
+              <span className="star"></span>
+              <span className="star"></span>
+              <span className="star"></span>
+              <span className="star"></span>
+              <span className="star"></span>
+              <span className="star"></span>
+              <span className="star"></span>
+              <span className="star"></span>
+              <span className="star"></span>
+              <span className="star"></span>
+              <span className="star"></span>
+              <span className="star"></span>
+              <span className="star"></span>
+              <span className="star"></span>
             </span>
           </span>
-          <span class="text">Cancelar</span>
+          <span className="text">Cancelar</span>
         </button>
 
         <button

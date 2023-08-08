@@ -1,56 +1,50 @@
-.LoadingTodo-container{
+.LoadingTodo-container {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 24px;
-  box-shadow: 0px 5px 50px rgb(32, 35, 41, 0);
+  box-shadow: 0px 5px 50px rgba(32, 35, 41, 0.2);
   border-radius: 10px;
   padding: 12px 0;
 }
-.LoadingTodo-Text{
+
+.LoadingTodo-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8); /* Fondo negro con opacidad del 80% */
+  border-radius: 10px;
+}
+
+.LoadingTodo-Text {
   margin: 24px 0 24px 24px;
   width: calc(100% - 120px);
   font-size: 18px;
   line-height: 24px;
   font-weight: 400;
-}
-.LoadingTodo-completeIcon, 
-.LoadingTodo-deleteIcon{
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50px;
-  height: 48px;
-  width: 48px;
-}
-.LoadingTodo-completeIcon{
-  position: absolute;
-  left: 12px;
-}
-.LoadingTodo-deleteIcon{
-  position: absolute;
-  top: -24px;
-  right: 0;
-}
-.LoadingTodo-container,
-.LoadingTodo-completeIcon,
-.LoadingTodo-deleteIcon{
-  background: linear-gradient(90deg,rgba(250,250,250,1), rgb(200, 199, 199));
-  background-size: 400% 400%;
-  animation: loadingAnimation 3s ease-in-out infinite;
-}
-@keyframes loadingAnimation {
-  0%{
-    background-position: 0% 50%;
-  }
-  50%{
-    background-position: 100% 50%;
-  }
-  100%{
-    background-position: 0% 50%;
-  }
-  
+  color: white; /* Texto en color blanco */
+  z-index: 1; /* Asegurarse de que el texto esté por encima del fondo negro */
 }
 
+.LoadingTodo-loadingIcon {
+  cursor: pointer;
+  position: relative;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: #fff; /* Color blanco para los puntos */
+  animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

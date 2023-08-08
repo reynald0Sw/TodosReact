@@ -1,13 +1,12 @@
 import React from 'react';
 import './TodosLoading.css';
 
-function TodosLoading() {  
-
+function TodosLoading() {
   return (
     <div className='LoadingTodo-container'>
-      <span className='LoadingTodo-completeIcon'></span> 
-        <p className='LoadingTodo-Text'>Reload...</p>
-      <span className='LoadingTodo-deleteIcon'></span>            
+      <div className='LoadingTodo-overlay'></div>
+      <span className='LoadingTodo-loadingIcon'></span>
+      <p className='LoadingTodo-Text'>Reload...</p>
     </div>
   );
 }
