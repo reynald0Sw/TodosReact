@@ -5,7 +5,8 @@ function TodoCounter({ totalTodos, completedTodos, loading}) {
   
   return (
     <h2 className={`TodoCounter ${!!loading && "TodoCounter--loading"}`}>
-      You are complete <span>{completedTodos}</span> of <span>{totalTodos}</span> TODOS!
+      <p>Lista de Tareas "TODOS"</p>
+      Tareas Completadas <span>{completedTodos}</span> de <span>{totalTodos}</span> TODOS!
     </h2>
   );    
 }

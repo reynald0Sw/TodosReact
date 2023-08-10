@@ -18,9 +18,9 @@ function TodoForm({ addTodo, setOpenModal }) {
 
   return (
     <form onSubmit={onSubmit}>
-      <label>Escribe tu nuevo TODO</label>
+      <label>Escribe tu nueva Tarea "TODOS"</label>
       <textarea
-        placeholder="Cortar cenolla para el almuerxoo.."
+        placeholder="Nueva Tarea.."
         value={newTodoValue}
         onChange={onChange}
       />

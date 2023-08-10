@@ -39,20 +39,30 @@ function App() {
 
   // todos
   const {
+    state,
+    stateUpdaters,
+  } = useTodos();
+
+  const {
     error,
     loading,
     searchedTodos,
-    completeTodo,
-    deleteTodo,
-    openModal,
-    setOpenModal,
     totalTodos,
+    completeTodo,
     completedTodos,
+    openModal,
     searchValue,
+    
+  } = state;
+
+  const {
+
+    deleteTodo,
+    setOpenModal,
     setSearchValue,
     addTodo,
     sincronizeTodos,
-  } = useTodos();
+  } = stateUpdaters;
 
   return (
     <div className="App">
@@ -104,17 +114,8 @@ function App() {
               onLoading={() => <TodosLoading />}
               onEmptyTodos={() => <EmptyTodos />}
               onEmptySearchResults={
-                (searchText) => <p>No hay coencidencias para {searchText}</p>
+                (searchText) => <p>No hay coincidencias para {searchText}</p>
               }
-              // render={(todo) => (
-              //   <TodoItem
-              //     key={todo.text}
-              //     text={todo.text}
-              //     completed={todo.completed}
-              //     onComplete={() => completeTodo(todo.text)}
-              //     onDelete={() => deleteTodo(todo.text)}
-              //   />
-              // )}
             >
               {todo => (
                 <TodoItem
@@ -158,4 +159,3 @@ function App() {
 
 export default App;
 
-// video 5 compartir proyecto~
